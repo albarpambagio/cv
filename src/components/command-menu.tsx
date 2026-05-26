@@ -63,7 +63,15 @@ export const CommandMenu = ({ links }: Props) => {
                 window.print();
               }}
             >
-              <span>Print</span>
+              <span>Print (Browser)</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+                window.open("/cv.pdf", "_blank");
+              }}
+            >
+              <span>Download PDF</span>
             </CommandItem>
           </CommandGroup>
           <CommandGroup heading="Links">

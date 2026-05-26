@@ -31,6 +31,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# rendercv generated output
+/rendercv_output
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,0 +1,80 @@
+cv:
+  name: Albar Pambagio Arioseto
+  email: albarpambagio@gmail.com
+  location: Bandung, Indonesia
+  website: https://github.com
+  social_networks:
+    - network: GitHub
+      username: albarpambagio
+    - network: LinkedIn
+      username: albarpambagio
+  sections:
+    summary:
+      - Data analyst with hands-on experience building end-to-end analytics pipelines — from ETL and star schema design 
+        to interactive dashboards and time-series forecasting. Projects span FMCG procurement intelligence, pharmacy 
+        retail operations, and e-commerce marketing analytics. Strong foundation in Python, SQL, and business-oriented 
+        storytelling; background in UX design sharpens how I communicate findings to non-technical stakeholders.
+    education:
+      - institution: Universitas Terbuka
+        area: Management
+        degree: Bachelor
+        start_date: '2022'
+        end_date: '2026'
+      - institution: Pacmann
+        area: Analytics & Data Science
+        degree: Program
+        start_date: '2023'
+        end_date: '2025'
+      - institution: Bangkit Academy (Google, Tokopedia, Gojek, Traveloka)
+        area: Cloud Computing
+        degree: Independent Study
+        start_date: '2024'
+        end_date: '2024'
+    experience:
+      - company: PT Kautsar Inovasi Teknologi Digital
+        position: UX Designer
+        start_date: '2020'
+        end_date: '2021'
+        highlights:
+          - Designed user interfaces for school and learning management system products
+          - Collaborated with developers to establish a shared design system, reducing implementation inconsistency 
+            across product lines
+    projects:
+      - name: '[Indonesia Food Price Intelligence](https://github.com/albarpambagio/indonesia-food-price-intelligence)'
+        date: In Progress
+        summary: 17-year WFP food price pipeline (325,240 raw rows to 2,116 analytical rows) across 224 markets in 34 
+          provinces. dbt transformation layer with 33 automated tests. AutoARIMA/AutoETS forecasting with 12-month 
+          holdout validation.
+        highlights:
+          - 325K+ raw rows transformed to 2,116 analytical rows via dbt
+          - 224 markets across 34 Indonesian provinces
+          - 33 automated dbt tests for data quality
+          - AutoARIMA/AutoETS forecasting with 12-month holdout validation
+      - name: '[Pharmacy Retail Sales Analytics](https://github.com/albarpambagio/pharmacy-retail-sales-analytics)'
+        summary: End-to-end ETL pipeline processing 511,559 pharmacy transaction lines. Parsed irregular prescription 
+          number formats, designed star schema, classified 2,233 SKUs.
+        highlights:
+          - 511,559 transaction lines ingested via ETL pipeline
+          - 2,233 SKUs classified; 2 negative-margin products identified
+          - '[Dashboard](https://pharmacy-retail-sales-analytics.pages.dev) with margin threshold slider and CSV export'
+      - name: '[Olist Marketing Funnel: Channel Performance & LTV Analysis](https://github.com/albarpambagio/olist-marketing-report)'
+        summary: Analyzed 8,000 MQLs and 100,000 orders. Combined star schema joining marketing funnel and e-commerce 
+          datasets. Identified root cause of Social channel low conversion rate.
+        highlights:
+          - 8,000 MQLs and 100,000 orders analyzed
+          - 'Social channel conversion: 5.56% vs 17.3% Wolf-profile deal mix'
+          - 4-page Power BI dashboard for VP Marketing budget allocation -- 
+            [Deck](https://pitch.com/v/olist-channel-performance-report-ew5t9z)
+    skills:
+      - label: Languages
+        details: Python, SQL, TypeScript
+      - label: Databases & Tools
+        details: PostgreSQL, DuckDB, dbt, pandas
+      - label: Analytics
+        details: ETL Pipeline Design, Star Schema Modeling, EDA, Time-Series Analysis, Forecasting (AutoARIMA, AutoETS)
+      - label: Business Analytics
+        details: Funnel Analysis, LTV Analysis, Power BI
+      - label: Web & Deployment
+        details: Next.js, Recharts, Cloudflare Pages, GitHub Actions, Marimo
+design:
+  theme: engineeringresumes

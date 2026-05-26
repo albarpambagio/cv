@@ -84,16 +84,34 @@ interface ProjectCardProps {
   description: string;
   tags: ProjectTags;
   link?: string;
+  links?: Array<{ label: string; href: string }>;
 }
 
 /**
  * Card component displaying project information
  */
-function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
+function ProjectCard({
+  title,
+  description,
+  tags,
+  link,
+  links,
+}: ProjectCardProps) {
+  const statusTag = tags.find((t) => t === "In Progress");
+  const techTags = tags.filter((t) => t !== "In Progress");
+
   return (
-    <Card className="flex h-full flex-col overflow-hidden border p-3">
+    <Card className="flex h-full flex-col overflow-hidden border p-3 print:overflow-visible print:break-inside-avoid">
       <CardHeader>
         <div className="space-y-1">
+          {statusTag && (
+            <Badge
+              className="mb-1 w-fit border-amber-400 bg-amber-50 text-amber-700 dark:border-amber-600 dark:bg-amber-950 dark:text-amber-300"
+              variant="outline"
+            >
+              {statusTag}
+            </Badge>
+          )}
           <CardTitle className="text-base">
             <ProjectLink title={title} link={link} />
           </CardTitle>
@@ -103,10 +121,26 @@ function ProjectCard({ title, description, tags, link }: ProjectCardProps) {
           >
             {description}
           </CardDescription>
+          {links && links.length > 0 && (
+            <ul className="flex list-none gap-2 pt-1 font-mono text-xs">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground underline underline-offset-2 hover:text-foreground"
+                  >
+                    {l.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </CardHeader>
       <CardContent className="mt-auto flex">
-        <ProjectTags tags={tags} />
+        <ProjectTags tags={techTags} />
       </CardContent>
     </Card>
   );
@@ -123,7 +157,7 @@ export function Projects({ projects }: ProjectsProps) {
   return (
     <Section className="scroll-mb-16 print:space-y-4">
       <h2 className="text-xl font-bold" id="side-projects">
-        Side projects
+        Portfolio Project
       </h2>
       <div
         className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2"
@@ -140,6 +174,7 @@ export function Projects({ projects }: ProjectsProps) {
               description={project.description}
               tags={project.techStack}
               link={project.link?.href}
+              links={project.links}
             />
           </article>
         ))}

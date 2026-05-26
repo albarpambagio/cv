@@ -1,6 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import { Plus_Jakarta_Sans, Space_Mono } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
@@ -9,22 +8,23 @@ import { ErrorBoundary } from "@/components/error-boundary";
 import { RESUME_DATA } from "@/data/resume-data";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cv.jarocki.me"),
+  metadataBase: new URL("https://albar-cv.pages.dev"),
   title: {
-    default: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    template: `%s | ${RESUME_DATA.name}`,
+    default: `Albar Pambagio — Data Analyst`,
+    template: `%s | Albar Pambagio`,
   },
-  description: RESUME_DATA.about,
+  description:
+    "Data analyst building analytics pipelines across FMCG, retail, and healthcare. Based in Bandung, Indonesia.",
   keywords: [
     "resume",
     "cv",
     "portfolio",
     RESUME_DATA.name,
-    "software engineer",
-    "full stack developer",
-    "react",
-    "next.js",
-    "typescript",
+    "data analyst",
+    "analytics",
+    "python",
+    "sql",
+    "power bi",
   ],
   authors: [{ name: RESUME_DATA.name }],
   creator: RESUME_DATA.name,
@@ -39,8 +39,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: RESUME_DATA.personalWebsiteUrl,
     siteName: `${RESUME_DATA.name}'s CV`,
-    title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: RESUME_DATA.about,
+    title: `Albar Pambagio — Data Analyst`,
+    description:
+      "Data analyst building analytics pipelines across FMCG, retail, and healthcare. Based in Bandung, Indonesia.",
   },
   robots: {
     index: true,
@@ -55,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: RESUME_DATA.about,
-    creator: "@BartoszJarocki",
+    title: `Albar Pambagio — Data Analyst`,
+    description:
+      "Data analyst building analytics pipelines across FMCG, retail, and healthcare. Based in Bandung, Indonesia.",
   },
   alternates: {
     canonical: RESUME_DATA.personalWebsiteUrl,
@@ -74,14 +75,28 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono",
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>
+    <html
+      lang="en"
+      className={`${plusJakartaSans.variable} ${spaceMono.variable}`}
+    >
+      <body suppressHydrationWarning={true}>
         <ErrorBoundary>{children}</ErrorBoundary>
         <Analytics />
       </body>

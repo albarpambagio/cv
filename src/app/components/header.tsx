@@ -1,7 +1,7 @@
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import type React from "react";
 import { Avatar } from "@/components/avatar";
-import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { GitHubIcon, LinkedInIcon, MediumIcon } from "@/components/icons";
 import { XIcon } from "@/components/icons/x-icon";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
@@ -15,6 +15,7 @@ const ICON_MAP: Record<
   github: GitHubIcon,
   linkedin: LinkedInIcon,
   x: XIcon,
+  medium: MediumIcon,
   globe: GlobeIcon,
   mail: MailIcon,
   phone: PhoneIcon,
@@ -181,6 +182,16 @@ export function Header() {
           contact={RESUME_DATA.contact}
           personalWebsiteUrl={RESUME_DATA.personalWebsiteUrl}
         />
+
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-1 inline-flex items-center gap-1 font-mono text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground print:hidden"
+          aria-label="Download PDF version"
+        >
+          PDF Version ↗
+        </a>
 
         <PrintContact
           contact={RESUME_DATA.contact}
